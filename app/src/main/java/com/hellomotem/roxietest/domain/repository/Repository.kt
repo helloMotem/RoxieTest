@@ -7,5 +7,7 @@ interface Repository {
 
     suspend fun fetchActiveOrders(): Result<List<ActiveOrder>>
 
-    suspend fun fetchCarImage(url: String): Result<CarImage>
+    suspend fun fetchCarImage(imageName: String): Result<CarImage>
+
+    fun getLocalCarImage(): Result<CarImage>
 }
