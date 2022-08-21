@@ -6,11 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.hellomotem.roxietest.R
+import com.hellomotem.roxietest.domain.entity.ActiveOrder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ActiveOrdersFragment : Fragment() {
 
-    private lateinit var viewModel: ActiveOrdersViewModel
+    private val viewModel: ActiveOrdersViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

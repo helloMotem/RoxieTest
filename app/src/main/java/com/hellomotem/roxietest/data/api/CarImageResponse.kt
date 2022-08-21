@@ -1,4 +1,4 @@
-package com.hellomotem.roxietest.data.entity
+package com.hellomotem.roxietest.data.api
 
 data class CarImageResponse(
     val id: Int,

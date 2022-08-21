@@ -11,7 +11,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.hellomotem.roxietest.R
 import com.hellomotem.roxietest.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

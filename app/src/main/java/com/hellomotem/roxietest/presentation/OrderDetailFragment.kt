@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hellomotem.roxietest.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrderDetailFragment : Fragment() {
 
     private lateinit var viewModel: OrderDetailViewModel
@@ -17,12 +19,6 @@ class OrderDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_order_detail, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[OrderDetailViewModel::class.java]
-        // TODO: Use the ViewModel
     }
 
     companion object {
