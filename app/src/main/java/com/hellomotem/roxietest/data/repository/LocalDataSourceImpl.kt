@@ -1,4 +1,9 @@
 package com.hellomotem.roxietest.data.repository
 
-class LocalDataSourceImpl {
+import com.hellomotem.roxietest.domain.entity.CarImage
+
+class LocalDataSourceImpl : LocalDataSource {
+    override fun getCarImage(): CarImage? {
+        TODO("Not yet implemented")
+    }
 }

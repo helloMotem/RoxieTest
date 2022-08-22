@@ -3,6 +3,8 @@ package com.hellomotem.roxietest.data.mapper
 import com.hellomotem.roxietest.data.api.ActiveOrderResponse
 import com.hellomotem.roxietest.domain.entity.ActiveOrder
 
+interface ListMapper
+
 class ActiveOrderResponseMapper(
     private val addressResponseMapper: AddressResponseMapper,
     private val priceResponseMapper: PriceResponseMapper,

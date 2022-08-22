@@ -11,11 +11,12 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
-    private val service: OrdersService,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val service: OrdersService,
     private val orderResponseMapper: ActiveOrderResponseMapper,
     private val carImageResponseMapper: CarImageResponseMapper
 ) : RemoteDataSource {
+
     override suspend fun fetchActiveOrders(): List<ActiveOrder>? {
         return withContext(dispatcher) {
             service.getActiveOrders()
