@@ -13,67 +13,74 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/from_tv"
+            style="@style/TextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/from"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/from_city_tv"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/from_tv"
+            app:layout_constraintStart_toEndOf="@id/from_tv"
+            app:layout_constraintTop_toTopOf="@+id/from_tv"
+            tools:text="Пр. Ленина, д. 1" />
+
+        <TextView
+            android:id="@+id/to_tv"
+            style="@style/TextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/to"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/from_tv"
+            app:layout_constraintTop_toBottomOf="@id/from_city_tv" />
+
+        <TextView
+            android:id="@+id/to_city_tv"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/to_tv"
+            app:layout_constraintStart_toStartOf="@id/from_city_tv"
+            app:layout_constraintTop_toTopOf="@id/to_tv"
+            tools:text="Пр. Невский, д. 126" />
+
+        <TextView
             android:id="@+id/date_tv"
             style="@style/TextContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="12-03-2021" />
-
-        <ImageView
-            android:contentDescription="@string/to"
-            android:id="@+id/arrow_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_downward_24"
-            android:rotation="270"
-            app:layout_constraintTop_toTopOf="@id/from_destination_tv"
-            app:layout_constraintBottom_toBottomOf="@id/to_destination_tv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/from_destination_tv"
-            style="@style/TextTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
-            android:textColor="@color/primary_color"
-            app:layout_constraintEnd_toStartOf="@id/arrow_iv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_tv"
-            tools:text="Ул. Савушкина, д. 1" />
-
-        <TextView
-            android:id="@+id/to_destination_tv"
-            style="@style/TextTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="4dp"
-            android:textColor="@color/primary_color"
-            app:layout_constraintStart_toEndOf="@id/arrow_iv"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/from_tv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/from_destination_tv"
-            tools:text="Ул. Нерчинаская, д. 6" />
+            app:layout_constraintTop_toTopOf="@id/from_tv"
+            tools:text="2015-08-27" />
 
         <TextView
             android:id="@+id/price_tv"
-            style="@style/TextContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/secondary_color"
-            app:layout_constraintEnd_toEndOf="@id/to_destination_tv"
-            app:layout_constraintTop_toBottomOf="@id/to_destination_tv"
-            tools:text="731,00 RUB" />
+            app:layout_constraintBottom_toBottomOf="@id/to_tv"
+            style="@style/TextTitle"
+            app:layout_constraintEnd_toEndOf="@id/date_tv"
+            android:background="@drawable/rounded_shape"
+            app:layout_constraintTop_toTopOf="@id/to_tv"
+            tools:text="450,00 RUB" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

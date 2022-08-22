@@ -1,4 +1,4 @@
-package com.hellomotem.roxietest.presentation.viewmodel
+package com.hellomotem.roxietest.presentation.ordersdetail
 
 import androidx.lifecycle.ViewModel
 import com.hellomotem.roxietest.domain.usecase.GetCarImageUseCase

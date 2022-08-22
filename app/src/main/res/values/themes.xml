@@ -24,12 +24,12 @@
     <style name="Theme.RoxieTest.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="TextTitle">
-        <item name="android:fontFamily">@font/work_sans_bold</item>
-        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:fontFamily">@font/worksans_medium</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="TextContent">
-        <item name="android:fontFamily">@font/work_sans_bold</item>
-        <item name="android:textSize">@dimen/text_content_size</item>
+        <item name="android:fontFamily">@font/worksans_light</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

@@ -3,10 +3,14 @@ package com.hellomotem.roxietest.presentation
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.distinctUntilChanged
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,7 +21,7 @@ class NetworkConnectivityObserver @Inject constructor(
     private val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-    override fun observe(): Flow<ConnectivityObserver.Status> {
+    override fun observe(): LiveData<ConnectivityObserver.Status> {
         return callbackFlow {
             val callback = object : ConnectivityManager.NetworkCallback() {
                 override fun onAvailable(network: Network) {
@@ -32,6 +36,6 @@ class NetworkConnectivityObserver @Inject constructor(
             }
             connectivityManager.registerDefaultNetworkCallback(callback)
             awaitClose { connectivityManager.unregisterNetworkCallback(callback) }
-        }
+        }.asLiveData().distinctUntilChanged()
     }
 }
