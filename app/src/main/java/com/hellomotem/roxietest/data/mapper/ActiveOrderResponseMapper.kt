@@ -1,9 +1,8 @@
 package com.hellomotem.roxietest.data.mapper
 
-import com.hellomotem.roxietest.data.api.ActiveOrderResponse
+import com.hellomotem.roxietest.data.entity.remote.ActiveOrderResponse
+import com.hellomotem.roxietest.data.entity.remote.ActiveOrdersResponse
 import com.hellomotem.roxietest.domain.entity.ActiveOrder
-
-interface ListMapper
 
 class ActiveOrderResponseMapper(
     private val addressResponseMapper: AddressResponseMapper,

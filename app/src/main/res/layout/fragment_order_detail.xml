@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ordersdetail.OrderDetailFragment">
 
-    <TextView
+    <ImageView
+        android:id="@+id/car_iv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="250dp"
+        android:background="@color/secondary_color"
+        android:src="@drawable/ic_baseline_directions_car_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/driver_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/car_model_tv"
+        tools:text="Петров Петр Петрович" />
+
+    <TextView
+        android:id="@+id/car_model_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/car_iv"
+        tools:text="Toyota Camry" />
+
+    <TextView
+        android:id="@+id/car_reg_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/car_model_tv"
+        app:layout_constraintTop_toTopOf="@id/car_model_tv"
+        tools:text="к345тт25" />
+
+    <TextView
+        android:id="@+id/from_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/from"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_name_tv" />
+
+    <TextView
+        android:id="@+id/from_city_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/from_tv"
+        app:layout_constraintTop_toTopOf="@id/from_tv"
+        tools:text="Пр. Ленина, д. 1, Санкт-Петербург" />
+
+    <TextView
+        android:id="@+id/to_city_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/to_tv"
+        app:layout_constraintTop_toTopOf="@id/to_tv"
+        tools:text="Пр. Невский, д. 126, Санкт-Петербург" />
+
+    <TextView
+        android:id="@id/to_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_tv"
+        android:text="@string/to" />
+
+    <TextView
+        android:id="@+id/price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/to_tv"
+        tools:text="RUB450,00" />
+
+    <TextView
+        android:id="@+id/date_tv"
+        android:layout_width="wrap_content"
+        tools:text="2016-05-27T19:50:00"
+
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/price_tv"
+        app:layout_constraintTop_toTopOf="@id/price_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

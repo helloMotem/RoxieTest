@@ -1,5 +1,6 @@
 package com.hellomotem.roxietest.data.repository
 
+import android.util.Log
 import com.hellomotem.roxietest.data.api.OrdersService
 import com.hellomotem.roxietest.data.mapper.ActiveOrderResponseMapper
 import com.hellomotem.roxietest.data.mapper.CarImageResponseMapper
@@ -19,8 +20,7 @@ class RemoteDataSourceImpl @Inject constructor(
 
     override suspend fun fetchActiveOrders(): List<ActiveOrder>? {
         return withContext(dispatcher) {
-            service.getActiveOrders()
-                .getOrNull()
+            service.getActiveOrders().body()
                 ?.let { orderResponseMapper.map(it) }
         }
     }

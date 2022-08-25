@@ -1,6 +1,6 @@
 package com.hellomotem.roxietest.data.mapper
 
-import com.hellomotem.roxietest.data.api.VehicleResponse
+import com.hellomotem.roxietest.data.entity.remote.VehicleResponse
 import com.hellomotem.roxietest.domain.entity.Vehicle
 
 class VehicleResponseMapper : Mapper<VehicleResponse, Vehicle> {
