@@ -1,11 +1,9 @@
-package com.hellomotem.roxietest.data.entity.remote
+package com.hellomotem.roxietest.data.api
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class AddressResponse(
-    //@SerializedName("city")
     val city: String,
-    //@SerializedName("address")
     val address: String
 )

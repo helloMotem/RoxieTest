@@ -2,12 +2,14 @@ package com.hellomotem.roxietest.presentation.mapper
 
 import com.hellomotem.roxietest.domain.entity.Vehicle
 import com.hellomotem.roxietest.presentation.entity.VehicleUi
+import java.io.File
 
-class VehicleUiMapper: Mapper<Vehicle, VehicleUi> {
+class VehicleUiMapper : Mapper<Vehicle, VehicleUi> {
+
     override fun map(data: Vehicle): VehicleUi = VehicleUi(
         regNumber = data.regNumber,
-        modelName = data.modelName,
+        driverName = data.driverName,
         photo = data.photo,
-        driverName = data.driverName
+        modelName = data.modelName
     )
 }

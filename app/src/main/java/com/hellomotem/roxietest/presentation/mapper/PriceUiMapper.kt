@@ -6,7 +6,7 @@ import com.hellomotem.roxietest.presentation.entity.PriceUi
 
 class PriceUiMapper : Mapper<Price, PriceUi> {
     override fun map(data: Price): PriceUi = PriceUi(
-        amount = data.amount,
+        amount = data.amount.toDouble() / 100,
         currency = data.currency
     )
 }

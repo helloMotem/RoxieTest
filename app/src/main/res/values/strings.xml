@@ -2,4 +2,6 @@
     <string name="app_name">RoxieTest</string>
     <string name="to">Куда:</string>
     <string name="from">Откуда:</string>
+    <string name="active_orders">Активные Заказы</string>
+    <string name="order_details">Детали Заказа</string>
 </resources>

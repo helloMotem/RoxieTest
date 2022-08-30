@@ -1,17 +1,18 @@
 package com.hellomotem.roxietest.di
 
+import android.content.Context
 import com.hellomotem.roxietest.data.api.OrdersService
 import com.hellomotem.roxietest.data.mapper.*
 import com.hellomotem.roxietest.data.repository.*
 import com.hellomotem.roxietest.domain.repository.OrdersRepository
-import com.hellomotem.roxietest.presentation.mapper.ActiveOrderUiMapper
-import com.hellomotem.roxietest.presentation.mapper.AddressUiMapper
-import com.hellomotem.roxietest.presentation.mapper.PriceUiMapper
-import com.hellomotem.roxietest.presentation.mapper.VehicleUiMapper
+import com.hellomotem.roxietest.presentation.mapper.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
 
@@ -33,15 +34,18 @@ class DataModule {
     fun provideRemoteDataSource(
         service: OrdersService,
         activeOrderResponseMapper: ActiveOrderResponseMapper,
-        carImageResponseMapper: CarImageResponseMapper
+        dispatcher: CoroutineDispatcher
     ): RemoteDataSource = RemoteDataSourceImpl(
         service = service,
         orderResponseMapper = activeOrderResponseMapper,
-        carImageResponseMapper = carImageResponseMapper
+        dispatcher = dispatcher
     )
 
     @Provides
-    fun provideLocalDataSource(): LocalDataSource = LocalDataSourceImpl()
+    fun provideLocalDataSource(
+        dispatcher: CoroutineDispatcher,
+        @ApplicationContext context: Context
+    ): LocalDataSource = LocalDataSourceImpl(dispatcher = dispatcher, context = context)
 
     @Provides
     fun provideActiveOrderResponseMapper(): ActiveOrderResponseMapper {
@@ -57,9 +61,6 @@ class DataModule {
     }
 
     @Provides
-    fun provideCarImageResponseMapper(): CarImageResponseMapper = CarImageResponseMapper()
-
-    @Provides
     fun provideActiveOrdersUiMapper(): ActiveOrderUiMapper {
         val addressUiMapper = AddressUiMapper()
         val priceUiMapper = PriceUiMapper()
@@ -72,4 +73,6 @@ class DataModule {
         )
     }
 
+    @Provides
+    fun provideCarImageUiMapper(): CarImageUiMapper = CarImageUiMapper()
 }

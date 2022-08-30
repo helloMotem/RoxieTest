@@ -13,9 +13,15 @@ class OrdersRepositoryImpl @Inject constructor(
     override suspend fun fetchActiveOrders(): List<ActiveOrder>? =
         remoteDataSource.fetchActiveOrders()
 
-    override suspend fun fetchCarImage(imageName: String): CarImage? =
+    override suspend fun fetchCarImage(imageName: String): CarImage =
         remoteDataSource.fetchCarImage(imageName)
 
-    override fun getLocalCarImage(): CarImage? =
-        localDataSource.getCarImage()
+    override suspend fun getLocalCarImage(name: String): CarImage? =
+        localDataSource.getCarImage(name)
+
+    override suspend fun saveCarImage(name: String, carImage: CarImage) =
+        localDataSource.saveCarImage(name, carImage)
+
+    override suspend fun deleteCarImage(name: String): Boolean =
+        localDataSource.deleteCarImage(name)
 }

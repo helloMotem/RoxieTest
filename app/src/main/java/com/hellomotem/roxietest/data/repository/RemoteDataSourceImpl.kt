@@ -1,21 +1,17 @@
 package com.hellomotem.roxietest.data.repository
 
-import android.util.Log
 import com.hellomotem.roxietest.data.api.OrdersService
 import com.hellomotem.roxietest.data.mapper.ActiveOrderResponseMapper
-import com.hellomotem.roxietest.data.mapper.CarImageResponseMapper
 import com.hellomotem.roxietest.domain.entity.ActiveOrder
 import com.hellomotem.roxietest.domain.entity.CarImage
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val dispatcher: CoroutineDispatcher,
     private val service: OrdersService,
-    private val orderResponseMapper: ActiveOrderResponseMapper,
-    private val carImageResponseMapper: CarImageResponseMapper
+    private val orderResponseMapper: ActiveOrderResponseMapper
 ) : RemoteDataSource {
 
     override suspend fun fetchActiveOrders(): List<ActiveOrder>? {
@@ -25,11 +21,10 @@ class RemoteDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun fetchCarImage(imageName: String): CarImage? {
+    override suspend fun fetchCarImage(imageName: String): CarImage {
         return withContext(dispatcher) {
-            service.getCarImage(imageName = imageName)
-                .getOrNull()
-                ?.let { carImageResponseMapper.map(it) }
+            val response = service.getCarImage(imageName = imageName).body()!!
+            CarImage.ApiCarImage(response)
         }
     }
 }

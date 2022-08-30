@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="4dp"
     android:clickable="true"
-    app:shapeAppearance="@style/ShapeAppearance.Material3.MediumComponent">
+    app:shapeAppearance="@style/cardShapeAppearanceModel">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,11 +28,13 @@
         <TextView
             android:id="@+id/from_city_tv"
             style="@style/TextContent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/from_tv"
+            app:layout_constraintEnd_toEndOf="@id/price_tv"
+
             app:layout_constraintStart_toEndOf="@id/from_tv"
             app:layout_constraintTop_toTopOf="@+id/from_tv"
             tools:text="Пр. Ленина, д. 1, Санкт-Петербург" />
@@ -51,10 +54,11 @@
         <TextView
             android:id="@+id/to_city_tv"
             style="@style/TextContent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/to_tv"
+            app:layout_constraintEnd_toEndOf="@id/from_city_tv"
             app:layout_constraintStart_toStartOf="@id/from_city_tv"
             app:layout_constraintTop_toTopOf="@id/to_tv"
             tools:text="Пр. Невский, д. 126, Санкт-Петербург" />
@@ -62,12 +66,12 @@
         <TextView
             android:id="@+id/date_tv"
             style="@style/TextContent"
-            app:layout_constraintStart_toStartOf="@id/to_tv"
-            app:layout_constraintTop_toTopOf="@id/price_tv"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/to_tv"
+            app:layout_constraintTop_toTopOf="@id/price_tv"
             tools:text="2015-08-27" />
 
         <TextView
